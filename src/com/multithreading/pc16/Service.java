@@ -15,7 +15,7 @@ public class Service {
                 System.out.println("testMethod_1 release time " +
                         System.currentTimeMillis() + " run ThreadName time " + Thread.currentThread().getName());
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                e.printStackTrace();//
             }
         }
 

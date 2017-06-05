@@ -24,7 +24,7 @@ public class Run {
 
         ThreadB b = new ThreadB(myproject);
         b.setName("B");
-        b.start();
+        b.start();//
 
 
     }
