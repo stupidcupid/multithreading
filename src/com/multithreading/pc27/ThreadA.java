@@ -1,33 +1,35 @@
 package com.multithreading.pc27;
 
-import java.util.List;
-
 /**
  * Created by nanzhou on 2017/6/7.
  */
-public class ThreadA extends  Thread {
+public class ThreadA extends Thread {
 
-    private MyList list;
+    private Object lock;
 
-    public ThreadA(MyList list){
+    public ThreadA(Object lock) {
 
         super();
-        this.list = list;
+        this.lock = lock;
     }
 
     @Override
-    public void run(){
+    public void run() {
 
-        for(int i = 0; i< 10; i++ ){
 
-            System.out.println("添加了 " + (i+1) + "个元素");
+        try {
+            synchronized (lock){
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                if(MyList.size() != 5){
+                    System.out.println("wait begin + " + System.currentTimeMillis());
+                    lock.wait();
+                    System.out.println("wait end + " + System.currentTimeMillis());
+                }
             }
-
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
     }
 }
+
