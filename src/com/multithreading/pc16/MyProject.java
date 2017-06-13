@@ -15,6 +15,5 @@ public class MyProject {
         System.out.println("speedPrintString release time " +
                 System.currentTimeMillis() + " run ThreadName time " + Thread.currentThread().getName());
 
-
     }
 }
