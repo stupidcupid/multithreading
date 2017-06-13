@@ -7,16 +7,21 @@ public class MyRun {
 
     private String lock = new String("");
 
-    private Runnable runnableA = new Runnable() {
+    private boolean isFirstRunB = false;
+
+    private  Runnable runnableA = new Runnable() {
 
         @Override
         public void run() {
 
             try {
                 synchronized (lock) {
-                    System.out.println(" begin wait ");
-                    lock.wait();
-                    System.out.println(" end wait");
+                    while(isFirstRunB == false){
+
+                        System.out.println(" begin wait ");
+                        lock.wait();
+                        System.out.println(" end wait");
+                    }
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -33,8 +38,24 @@ public class MyRun {
                 System.out.println(" begin notify ");
                 lock.notify();
                 System.out.println(" end notify");
-
+                isFirstRunB = true;
             }
         }
     };
+
+    public static void main(String[] args) throws  InterruptedException{
+
+        MyRun run = new MyRun();
+
+        Thread threadA = new Thread(run.runnableA);
+        threadA.start();
+
+        Thread.sleep(100);
+
+        Thread threadB = new Thread(run.runnableB);
+        threadB.start();
+
+
+
+    }
 }
