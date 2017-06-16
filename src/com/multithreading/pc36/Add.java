@@ -17,7 +17,7 @@ public class Add {
 
 
         synchronized (lock){
-
+            ValueObject.list.add("anyString");
             lock.notifyAll();
         }
     }
