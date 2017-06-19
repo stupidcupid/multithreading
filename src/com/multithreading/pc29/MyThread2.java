@@ -1,7 +1,5 @@
 package com.multithreading.pc29;
 
-import com.multithreading.pc26.MyThread;
-
 /**
  * Created by nanzhou on 2017/6/12.
  */
