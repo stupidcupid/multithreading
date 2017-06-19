@@ -26,7 +26,7 @@ public class P {
                 System.out.println("生产者 wait " + Thread.currentThread().getName() + " RUNNBLE ✨");
                 String value = System.currentTimeMillis() + "_" + System.nanoTime();
                 ValueObject.value = value;
-                lock.notify();
+                lock.notifyAll();
             }
 
         } catch (InterruptedException e) {
