@@ -1,0 +1,14 @@
+boolean hasWaiters(Condition condition)
+查询是否有线程正在等待与此锁定有关的condition条件
+
+boolean isFair()
+判断是否为 平衡锁
+
+boolean isHeldByCurrentThread()
+查询判断当前线程是否保持此锁定
+
+boolean isLocked()
+查询此锁定是否由任意线程锁定
+
+
+
